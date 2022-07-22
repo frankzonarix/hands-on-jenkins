@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # set variables
-hostname='localhost'
+#hostname='localhost'
+hostname='172.17.0.2'
 port=$1
 
 # wait for the app to start
@@ -10,7 +11,7 @@ sleep 5
 # ping the app
 status_code=$(curl -LI ${hostname}:${port} -o /dev/null -w '%{http_code}\n' -s)
 
-if [[ "$status_code" -eq 200 ]];
+if [[ "$status_code" -eq 200 ]]
 then
 	echo "PASS: ${hostname}:${port} is reachable"
 else
