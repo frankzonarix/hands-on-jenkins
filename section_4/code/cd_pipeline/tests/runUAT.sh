@@ -5,7 +5,7 @@ hostname='localhost'
 port=$1
 
 # wait for the app to start
-sleep 5 
+sleep 10 
 
 # ping the app
 status_code=$(curl -LI ${hostname}:${port} -o /dev/null -w '%{http_code}\n' -s)
