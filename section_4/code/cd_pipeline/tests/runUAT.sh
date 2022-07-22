@@ -11,11 +11,5 @@ sleep 10
 status_code=$(curl -LI ${hostname}:${port} -o /dev/null -w '%{http_code}\n' -s)
 echo $status_code
 
-#if [[ "$status_code" -eq 200 ]]
-#then
-#	echo "PASS: ${hostname}:${port} is reachable"
-	exit 0
-#else
-#	echo "FAIL: ${hostname}:${port} is unreachable"
-#    exit 1
+if [[ "$status_code" == 200 ]]; then echo "PASS: ${hostname}:${port} is reachable"; else echo "FAIL: ${hostname}:${port} is unreachable";exit 1;fi
 #fi
