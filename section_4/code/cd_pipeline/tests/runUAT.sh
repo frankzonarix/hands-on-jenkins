@@ -10,7 +10,7 @@ sleep 5
 # ping the app
 status_code=$(curl --write-out %{http_code} -o /dev/null --silent ${hostname}:${port})
 
-if [ $status_code == 200 ];
+if [[ "$status_code" -eq 200 ]];
 then
 	echo "PASS: ${hostname}:${port} is reachable"
 else
