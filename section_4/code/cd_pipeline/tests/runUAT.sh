@@ -8,6 +8,7 @@ port=$1
 sleep 10 
 
 # ping the app
+curl -LI ${hostname}:${port}|head -1
 status_code=$(curl -LI ${hostname}:${port} -o /dev/null -w '%{http_code}\n' -s)
 echo $status_code
 
